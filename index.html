@@ -20,7 +20,7 @@ I'm interested in acquiring some pieces and would love to discuss details. Pleas
 Best Regards,
 Jonathan.`;
 
-    const mailto = mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
+    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     document.getElementById('mailto-link').href = mailto;
   </script>
 </body>
