@@ -2,26 +2,26 @@
 <html>
 <head>
   <title>Open Email</title>
-  <script>
-    window.onload = function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const to = urlParams.get('to');
-      const subject = urlParams.get('subject') || 'Inquiry About Artworks';
-      const body = urlParams.get('body') || 'Hello,\n\nMy name is Jonathan Peterson Miller; an Artwork Collector/Trader...';
-
-      if (!to) {
-        document.body.innerHTML = "<p>Error: No recipient specified.</p>";
-        return;
-      }
-
-      // Build mailto link
-      const mailto = mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
-      // Redirect to mailto link
-      window.location.href = mailto;
-    }
-  </script>
 </head>
 <body>
-  <p>Loading your email app...</p>
+  <p>Tap the link below to open your email app:</p>
+  <a id="mailto-link" href="#">📧 Open Email</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const to = params.get('to') || 'default@example.com';
+    const subject = 'Inquiry About Artworks';
+    const body = `Hello,
+
+My name is Jonathan Peterson Miller; an Artwork Collector/Trader. I came across your works and was truly impressed by your unique creative vision.
+
+I'm interested in acquiring some pieces and would love to discuss details. Please get back to me at your earliest convenience.
+
+Best Regards,
+Jonathan.`;
+
+    const mailto = mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)};
+    document.getElementById('mailto-link').href = mailto;
+  </script>
 </body>
 </html>
